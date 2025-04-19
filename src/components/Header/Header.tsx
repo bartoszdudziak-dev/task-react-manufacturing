@@ -9,7 +9,7 @@ function Header() {
   return (
     <header className='w-full'>
       <div className='bg-base-200 p-4 lg:p-6'>
-        <Container className='items-center justify-between'>
+        <Container className='flex items-center justify-between'>
           <div className='flex items-center gap-6'>
             <Logo />
             <HeaderTitle />
