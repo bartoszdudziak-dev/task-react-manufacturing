@@ -10,10 +10,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Add
 
 - Cupcake theme
+- Header component
+- Navbar component style
+- LoginButton and SignUpButton styles
 
 ### Changed
 
 - Logo crop
+- Folder structure
+
+### Removed
+
+- Linked style file in index.html
 
 ## [0.1.1] - 2025-04-18
 
