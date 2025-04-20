@@ -2,3 +2,9 @@
 @plugin "daisyui" {
   themes: cupcake --default;
 }
+
+.collapse-arrow {
+  > .collapse-title:after {
+    top: 50%;
+  }
+}

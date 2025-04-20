@@ -1,4 +1,4 @@
-import { LogoProps } from './Logo.types';
+import { type LogoProps } from './types';
 import logoUrl from '@/assets/images/logo.webp';
 
 function Logo({ src = logoUrl, className = '', ...props }: LogoProps) {
