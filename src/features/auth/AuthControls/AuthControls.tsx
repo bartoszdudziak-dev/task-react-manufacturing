@@ -5,7 +5,7 @@ import SignUpButton from '@/ui/SignUpButton';
 function AuthControls() {
   return (
     <div className='space-x-2 md:space-x-4'>
-      <Modal>
+      <Modal title='Login Form'>
         <Modal.Button>
           <LoginButton />
         </Modal.Button>
@@ -13,7 +13,7 @@ function AuthControls() {
         <Modal.Content>Hello is login</Modal.Content>
       </Modal>
 
-      <Modal>
+      <Modal title='Sign up Form'>
         <Modal.Button>
           <SignUpButton />
         </Modal.Button>

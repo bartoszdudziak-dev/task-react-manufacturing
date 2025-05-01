@@ -6,7 +6,7 @@ function RootLayout() {
   return (
     <>
       <Header />
-      <Container className='mt-6 p-4 lg:p-6'>
+      <Container className='mt-6 p-4 lg:mt-10 xl:p-0'>
         <Outlet />
       </Container>
     </>

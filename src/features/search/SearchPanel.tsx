@@ -7,7 +7,7 @@ import jobCategories from '@/data/jobCategories';
 
 function SearchPanel() {
   return (
-    <section className='bg-base-100 p-4 shadow-lg'>
+    <section className='bg-base-100 rounded-sm p-4 shadow-lg'>
       <div className='p-4 pb-0'>
         <h2 className='border-accent-content mb-2 border-b-1 pb-2 text-sm font-semibold tracking-widest uppercase'>
           Search Job Offer

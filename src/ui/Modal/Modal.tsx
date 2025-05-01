@@ -4,9 +4,11 @@ import {
   type ModalContentProps,
   type ModalButtonProps,
   type ModalProps,
+  type ModalTitleProps,
 } from './types';
+import { IoCloseCircleOutline } from 'react-icons/io5';
 
-function Modal({ children }: ModalProps) {
+function Modal({ children, title = '' }: ModalProps) {
   const modalRef = useRef<null | HTMLDialogElement>(null);
 
   const openModal = () => {
@@ -22,7 +24,7 @@ function Modal({ children }: ModalProps) {
   };
 
   return (
-    <ModalContext.Provider value={{ openModal, closeModal, modalRef }}>
+    <ModalContext.Provider value={{ openModal, closeModal, modalRef, title }}>
       {children}
     </ModalContext.Provider>
   );
@@ -35,21 +37,31 @@ function ModalButton({ children }: ModalButtonProps) {
 }
 
 function ModalContent({ children }: ModalContentProps) {
-  const { modalRef, closeModal } = useModalContext();
+  const { modalRef, closeModal, title } = useModalContext();
 
   return (
     <dialog ref={modalRef} className='modal modal-middle'>
-      <div className='modal-box'>
-        {children}
-        <div className='modal-action'>
-          <form method='dialog'>
-            <button className='btn' onClick={closeModal}>
-              Close
-            </button>
-          </form>
+      <div className='modal-box rounded-sm'>
+        <div className='mb-6 flex items-center justify-between'>
+          {title && <ModalTitle>{title}</ModalTitle>}
+          <button
+            className='btn btn-square btn-ghost ml-auto'
+            onClick={closeModal}
+          >
+            <IoCloseCircleOutline className='h-full w-4/5' />
+          </button>
         </div>
+        {children}
       </div>
     </dialog>
+  );
+}
+
+function ModalTitle({ children }: ModalTitleProps) {
+  return (
+    <h2 className='text-accent-content text-lg font-bold tracking-wider uppercase lg:text-xl'>
+      {children}
+    </h2>
   );
 }
 
