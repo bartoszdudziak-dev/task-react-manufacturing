@@ -1,15 +1,12 @@
 @import 'tailwindcss';
 @plugin "daisyui" {
   themes: cupcake --default;
-}
-
-.collapse-arrow {
-  > .collapse-title:after {
-    top: 50%;
-  }
+  exclude: rootscrollgutter;
 }
 
 @plugin "daisyui/theme" {
   default: true;
   --radius-field: 0.25rem;
 }
+
+@import './custom.css';
