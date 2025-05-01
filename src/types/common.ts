@@ -3,3 +3,5 @@ import { ReactNode } from 'react';
 export type WithChildren<T = unknown> = T & {
   children?: ReactNode;
 };
+
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;

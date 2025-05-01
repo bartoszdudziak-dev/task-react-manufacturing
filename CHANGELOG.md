@@ -12,11 +12,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - React Router package
 - Root layout
 - Pages routes
+- Firebase configuration
+- Modal Compound Component
 
 ### Changed
 
 - NavLink components instead of anchor elements
 - Navigation items
+- Login and SignUp buttons
 
 ## [0.2.0] - 2025-05-01
 
