@@ -1,26 +1,24 @@
-import Header from '@/components/Header';
-import SavedOffers from '@/features/offers';
-import SearchPanel from '@/features/search/SearchPanel';
-import SearchResults from '@/features/search/SearchResults';
-import Container from '@/ui/Container';
+import { RootLayout } from '@/ui/Layout';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
+
+import About from '@/pages/about';
+import Contact from '@/pages/contact';
+import Offers from '@/pages/offers';
+import NewOffer from '@/pages/offers/new';
 
 function App() {
   return (
-    <>
-      <Header />
-      <Container className='mt-6 p-4 lg:p-6'>
-        <div className='grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-9'>
-          <div className='lg:col-span-4'>
-            <SavedOffers />
-            <SearchPanel />
-          </div>
-
-          <div className='lg:col-span-5'>
-            <SearchResults />
-          </div>
-        </div>
-      </Container>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<RootLayout />}>
+          <Route index element={<Navigate to='offers' replace />} />
+          <Route path='offers' element={<Offers />} />
+          <Route path='offers/new' element={<NewOffer />} />
+          <Route path='about' element={<About />} />
+          <Route path='contact' element={<Contact />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

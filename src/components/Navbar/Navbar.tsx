@@ -1,4 +1,4 @@
-import items from '@/data/navbarLinks';
+import items from '@/data/navigationItems';
 import NavList from './NavList';
 
 function Navbar() {

@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Add
+
+- React Router package
+- Root layout
+- Pages routes
+
+### Changed
+
+- NavLink components instead of anchor elements
+- Navigation items
+
 ## [0.2.0] - 2025-05-01
 
 ### Add
