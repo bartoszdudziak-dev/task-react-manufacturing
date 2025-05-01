@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Navbar component style
 - LoginButton and SignUpButton styles
 - React Icons package
+- Search Form style
 
 ### Changed
 

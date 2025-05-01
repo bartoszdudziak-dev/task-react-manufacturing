@@ -3,7 +3,7 @@ import { SearchFiltersProps } from './types';
 
 function SearchFilters({ filters }: SearchFiltersProps) {
   return (
-    <div className='flex w-full flex-col justify-between gap-4 lg:flex-row'>
+    <div className='flex w-full flex-col justify-between gap-4 xl:flex-row'>
       {filters.map(({ id, label, items }) => (
         <fieldset
           key={id}
