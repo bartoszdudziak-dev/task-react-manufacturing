@@ -1,6 +1,7 @@
 import Modal from '@/ui/Modal';
 import LoginButton from '@/ui/LoginButton';
 import SignUpButton from '@/ui/SignUpButton';
+import SignUpForm from '../SignUpForm';
 
 function AuthControls() {
   return (
@@ -13,12 +14,14 @@ function AuthControls() {
         <Modal.Content>Hello is login</Modal.Content>
       </Modal>
 
-      <Modal title='Sign up Form'>
+      <Modal title='Sign Up Form'>
         <Modal.Button>
           <SignUpButton />
         </Modal.Button>
 
-        <Modal.Content>Hello is signup</Modal.Content>
+        <Modal.Content>
+          <SignUpForm />
+        </Modal.Content>
       </Modal>
     </div>
   );

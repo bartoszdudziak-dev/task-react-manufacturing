@@ -41,8 +41,8 @@ function ModalContent({ children }: ModalContentProps) {
 
   return (
     <dialog ref={modalRef} className='modal modal-middle'>
-      <div className='modal-box rounded-sm'>
-        <div className='mb-6 flex items-center justify-between'>
+      <div className='modal-box rounded-sm p-4 md:p-6 lg:p-8'>
+        <div className='mb-4 flex items-center justify-between'>
           {title && <ModalTitle>{title}</ModalTitle>}
           <button
             className='btn btn-square btn-ghost ml-auto'
