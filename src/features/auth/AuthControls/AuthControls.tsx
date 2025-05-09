@@ -1,4 +1,4 @@
-import Modal from '@/ui/Modal';
+import Modal from '@/components/Modal';
 import LoginButton from '@/ui/LoginButton';
 import SignUpButton from '@/ui/SignUpButton';
 import SignUpForm from '../SignUpForm';

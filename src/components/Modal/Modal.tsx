@@ -1,5 +1,3 @@
-import { cloneElement, useRef } from 'react';
-import { ModalContext, useModalContext } from './context';
 import {
   type ModalContentProps,
   type ModalButtonProps,
@@ -7,6 +5,9 @@ import {
   type ModalTitleProps,
 } from './types';
 import { IoCloseCircleOutline } from 'react-icons/io5';
+import { cloneElement, useRef } from 'react';
+import { ModalContext } from './context';
+import { useModal } from './useModal';
 
 function Modal({ children, title = '' }: ModalProps) {
   const modalRef = useRef<null | HTMLDialogElement>(null);
@@ -31,13 +32,13 @@ function Modal({ children, title = '' }: ModalProps) {
 }
 
 function ModalButton({ children }: ModalButtonProps) {
-  const { openModal } = useModalContext();
+  const { openModal } = useModal();
 
   return cloneElement(children, { onClick: () => openModal() });
 }
 
 function ModalContent({ children }: ModalContentProps) {
-  const { modalRef, closeModal, title } = useModalContext();
+  const { modalRef, closeModal, title } = useModal();
 
   return (
     <dialog ref={modalRef} className='modal modal-middle'>

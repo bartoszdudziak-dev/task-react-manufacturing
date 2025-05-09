@@ -1,4 +1,4 @@
-import { JSX, PropsWithChildren, ReactElement } from 'react';
+import { JSX, ReactElement, PropsWithChildren } from 'react';
 
 export type ModalContextType = {
   openModal: () => void;

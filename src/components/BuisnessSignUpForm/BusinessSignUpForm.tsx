@@ -1,49 +1,40 @@
-import { auth, db } from '@/config/firebase';
-import { buisnessUserSchema } from '@/schemas/userSchema';
+import { type BuisnessUserFormType } from '@/types/common';
+import { buisnessAccountSchema } from '@/schemas/userSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
 import { useForm } from 'react-hook-form';
-import { z } from 'zod';
+import { useSignUpBuisnessAccount } from '@/features/auth/hooks/useSignUpBuisnessAccount';
+import { useModal } from '../Modal/useModal';
+
+const buisnessUserDefaultValues: BuisnessUserFormType = {
+  email: '',
+  password: '',
+  name: '',
+  city: '',
+};
 
 function BusinessSignUpForm() {
-  const { handleSubmit, register } = useForm<
-    z.infer<typeof buisnessUserSchema>
-  >({
-    resolver: zodResolver(buisnessUserSchema),
-    defaultValues: {
-      email: '',
-      password: '',
-      name: '',
-      city: '',
-    },
-  });
+  const { closeModal } = useModal();
+  const { signUp, isLoading } = useSignUpBuisnessAccount();
+  const { handleSubmit, register, reset, formState } =
+    useForm<BuisnessUserFormType>({
+      resolver: zodResolver(buisnessAccountSchema),
+      defaultValues: buisnessUserDefaultValues,
+    });
 
-  const signUp = async (values: z.infer<typeof buisnessUserSchema>) => {
-    const { email, password, city, name } = values;
-
-    try {
-      const { user } = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-      const buisnessDoc = {
-        email,
-        name,
-        city,
-        type: 'buisness',
-      };
-
-      await setDoc(doc(db, 'users', user.uid), buisnessDoc);
-    } catch (error) {
-      console.error(error);
-    }
+  const onSubmit = (values: BuisnessUserFormType) => {
+    signUp(
+      { ...values },
+      {
+        onSuccess: () => {
+          reset();
+          closeModal();
+        },
+      }
+    );
   };
 
   return (
-    <form className='space-y-4' onSubmit={handleSubmit(signUp)}>
+    <form className='space-y-4' onSubmit={handleSubmit(onSubmit)}>
       <label className='input input-sm md:input-md w-full'>
         <span className='label min-w-26'>Email</span>
         <input
@@ -71,8 +62,10 @@ function BusinessSignUpForm() {
       <button
         className='btn btn-accent btn-sm md:btn-md mt-1 w-full text-center'
         type='submit'
+        disabled={isLoading}
+        onClick={() => console.log(formState)}
       >
-        Sign up
+        Sign up {isLoading ? '....' : null}
       </button>
     </form>
   );
